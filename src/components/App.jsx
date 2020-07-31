@@ -14,14 +14,24 @@ class App extends React.Component {
   }
   getWeather = e => {
     e.preventDefault();
-    document.querySelector('.welcome-container').classList.remove('fade-in');
-    document.querySelector('.welcome-container').classList.add('fade-out');
-    document.querySelector('form h1').classList.add('textFadeOut');
-    setTimeout(() => {
-      document.querySelector('.logo').classList.add('textFadeIn');
-    }, 1500);
 
-    const searchedLocation = e.target.elements.search.value;
+    document.querySelector('.logo').classList.add('Logo-anim');
+    document.querySelector('.welcome-container').classList.add('Welcome-cont-anim');
+      setTimeout(() => {
+        document.querySelector('.search-bar').classList.add('Input-anim');
+      }, 1000);
+      setTimeout(() => {
+        document.querySelector('.location').classList.add('Main-anim');
+        document.querySelector('.current-date').classList.add('Main-anim');
+      }, 2000);
+      setTimeout(() => {
+        document.querySelector('.main-info').classList.add('Main-anim');
+        document.querySelector('.forecast-head').classList.add('Main-anim');
+        document.querySelector('.hourly-forecast').classList.add('Main-anim');
+
+      }, 2500);
+      const searchedLocation = e.target.elements.search.value;
+      setTimeout(() => {
 
       const APIkey = '66d6dd5057b73752a0babdd3bf02100d';
       
@@ -35,7 +45,7 @@ class App extends React.Component {
         throw Error(res1.statusText, res2.statusText);
       })
       .then(([data1, data2]) => {
-
+      
         const date = new Date(data1.dt * 1000).toLocaleString("en-EN", {weekday: "long"}) + " " +  new Date(data1.dt * 1000).toLocaleString("en-US", {day: "numeric"}) + " " + new Date(data1.dt * 1000).toLocaleString("en-EN", {month: "long"})
         const sunset = new Date(data1.sys.sunset * 1000).toLocaleString("en-US", {hour : "numeric", minute: "numeric"});
         const sunrise = new Date(data1.sys.sunrise * 1000).toLocaleString("en-US", {hour : "numeric", minute: "numeric"});
@@ -73,12 +83,13 @@ class App extends React.Component {
         });
 
       });
+      }, 1500);
+    
   }
   render() {
     
       return(
           <div className="app">
-            <h1 className="logo">Forecu Weather</h1>
               <SearchForm loadWeather={this.getWeather}/>
               {this.state.loaded === true && <Weather weather={this.state.weatherInfo} />}
           </div>

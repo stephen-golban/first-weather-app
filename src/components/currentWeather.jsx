@@ -8,7 +8,7 @@ const Weather = ({weather}) => {
     if (weather.main === 'Thunderstorm') {
         weatherIcon = <i className="fa fa-bolt"></i>
       } else if (weather.main === 'Drizzle') {
-        weatherIcon = <i className="fa fa-cloud-rain"></i>
+        weatherIcon = <i className="fas fa-cloud-rain"></i>
       } else if (weather.main === 'Rain') {
         weatherIcon = <i className="fa fa-cloud-showers-heavy"></i>
       } else if (weather.main === 'Snow') {
@@ -26,22 +26,24 @@ const Weather = ({weather}) => {
             <div className="location">{weather.city},{weather.country}</div>
             <div className="current-date">{weather.date}</div>
             <div className="main-info">
-                <div className="weather-icon">{weatherIcon}</div>
-                <div className="temp-info">
-                    <div>{Math.floor(weather.temp) + "°"}</div>
-                    <div>{weather.description}</div>
+                <div className="current-info">
+                    <div className="weather-icon">
+                        {weatherIcon}
+                    </div>
+                    <div className="temp-info">
+                        <div>{Math.floor(weather.temp) + "°"}</div>
+                        <div>{weather.description}</div>
+                    </div>
                 </div>
                 <div className="other-info">
                     <div className="part">
                         <div>{Math.round(weather.highestTemp) + " °"}<span>High</span></div>
-                        <div>{Math.round(weather.lowestTemp) + " °"}<span>Low</span></div>
-                    </div>
-                    <div className="part">
                         <div>{weather.wind + " mph"}<span>Wind</span></div>
-                        <div>{weather.humidity + " %"}<span>Rain</span></div>
+                        <div>{weather.sunrise}<span>Sunrise</span></div>
                     </div>
                     <div className="part">
-                        <div>{weather.sunrise}<span>Sunrise</span></div>
+                        <div>{Math.round(weather.lowestTemp) + " °"}<span>Low</span></div>
+                        <div>{weather.humidity + " %"}<span>Rain</span></div>
                         <div>{weather.sunset}<span>Sunset</span></div>
                     </div>
                 </div>

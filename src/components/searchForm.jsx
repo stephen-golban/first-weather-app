@@ -3,13 +3,13 @@ import '../CSS/index.css';
 
 const SearchForm = props =>{
     return(
-        <div className="welcome-container fade-in">
+        <div className="welcome-container">
+            <h1 className="logo">Forecu Weather</h1>
             <form onSubmit={props.loadWeather}>
-                <h1>Forecu Weather</h1>
                 <input 
                     type="text" 
                     className="search-bar" 
-                    placeholder="Search location ..." 
+                    placeholder="Enter location ..." 
                     name="search"
                     autoFocus
                     autoComplete="off"
