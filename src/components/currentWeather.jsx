@@ -61,6 +61,9 @@ const Weather = ({weather}) => {
                             </div>
                         </div>
                         <img src={`https://openweathermap.org/img/wn/${hours.weather[0].icon}@2x.png`} alt="icon"/>
+                        <div className="description">
+                            {hours.weather[0].main}
+                        </div>
                         <div className="temp">
                             {Math.round(hours.main.temp) + " °"}
                         </div>

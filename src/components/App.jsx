@@ -16,10 +16,13 @@ class App extends React.Component {
     e.preventDefault();
 
     document.querySelector('.logo').classList.add('Logo-anim');
-    document.querySelector('.welcome-container').classList.add('Welcome-cont-anim');
-      setTimeout(() => {
+    setTimeout(() => {
+      document.querySelector('.welcome-container').classList.add('Welcome-cont-anim');
+    }, 900);
+    setTimeout(() => {
+        document.querySelector('.welcome-container').classList.add('Welcome-cont-anim');
         document.querySelector('.search-bar').classList.add('Input-anim');
-      }, 1000);
+      }, 1500);
       setTimeout(() => {
         document.querySelector('.location').classList.add('Main-anim');
         document.querySelector('.current-date').classList.add('Main-anim');
